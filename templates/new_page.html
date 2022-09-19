@@ -1,4 +1,15 @@
 {% extends "base.html" %}
+{% block head %}
+    <style>
+        h1,
+        h2 {
+        color: red;
+        font-family: "Times New Roman", Georgia, Serif;
+        line-height: 1.3em;
+        }
+        body {background-color: rgba(255, 255, 128, .5);}
+    </style>
+{% endblock %}
 {% block content %}
     <h1>{{ title }}</h1>
     <a href="{{url_for ('index')}}">home</a>
