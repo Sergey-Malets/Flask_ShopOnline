@@ -12,9 +12,10 @@ s3_storage = S3Storage()
 
 class Item(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String)
-    price = 0
-    isActive = 0
+    title = db.Column(db.String(100), nullable=False)
+    price = db.Column(db.Integer, nullable=False)
+    isActive = db.Column(db.Boolean, default=True)
+    text = db.Column(db.Text, nullable=False)
     image = db.Column(
         StdImageField(
             storage=s3_storage,
@@ -32,6 +33,10 @@ def index():
 @app.route('/about')
 def about():
     return render_template('about.html', title='about')
+
+@app.route('/create')
+def create():
+    return render_template('create.html', title='Добавление товара')
 
 @app.route('/new_page')
 def new_page():
