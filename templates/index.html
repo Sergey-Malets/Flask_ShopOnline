@@ -9,47 +9,18 @@
       <p class="fs-5 text-muted">Нужно выбрать какую табличку отображать!</p>
     </div>
   </header>
+
     <div class="card-deck mb-3 text-center">
-      {% for el in data %}
-        <main>
+
           <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-            <div class="col">
-              <div class="card mb-4 rounded-3 shadow-sm">
-                <div class="card-header py-3">
-                  <h4 class="my-0 fw-normal">{{ el.title }}</h4>
-                </div>
-                <div class="card-body">
-                  <h1 class="card-title pricing-card-title">{{ el.price }}<small class="text-muted fw-light">пример</small></h1>
-                  <ul class="list-unstyled mt-3 mb-4">
-                    <li>Здесь должны быть хар-ки товара</li>
-                    <li>2 и здесь тоже можно</li>
-                  </ul>
-                  <button type="button" class="w-100 btn btn-lg btn-outline-primary">Жмякай-ничего не будет</button>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card mb-4 rounded-3 shadow-sm">
-                <div class="card-header py-3">
-                  <h4 class="my-0 fw-normal">{{ el.title }}</h4>
-                </div>
-                <div class="card-body">
-                  <h1 class="card-title pricing-card-title">{{ el.price }}<small class="text-muted fw-light">пример</small></h1>
-                  <ul class="list-unstyled mt-3 mb-4">
-                    <li>Здесь должны быть хар-ки товара</li>
-                    <li>2 и здесь тоже можно</li>
-                  </ul>
-                  <button type="button" class="w-100 btn btn-lg btn-primary">Жмякай-ничего не будет</button>
-                </div>
-              </div>
-            </div>
+            {% for el in data %}
             <div class="col">
               <div class="card mb-4 rounded-3 shadow-sm border-primary">
                 <div class="card-header py-3 text-bg-primary border-primary">
                   <h4 class="my-0 fw-normal">{{ el.title }}</h4>
                 </div>
                 <div class="card-body">
-                  <h1 class="card-title pricing-card-title">{{ el.price }}<small class="text-muted fw-light">пример</small></h1>
+                  <h1 class="card-title pricing-card-title">{{ el.price }}<small class="text-muted fw-light">"валюта"</small></h1>
                   <ul class="list-unstyled mt-3 mb-4">
                     <li>Здесь должны быть хар-ки товара</li>
                     <li>2 и здесь тоже можно</li>
@@ -58,10 +29,11 @@
                 </div>
               </div>
             </div>
+            {% endfor %}
           </div>
-        </main>
-      {% endfor %}
+
     </div>
+
 
 
 </div>
