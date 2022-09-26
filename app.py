@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_image_alchemy.storages import S3Storage
 from flask_image_alchemy.fields import StdImageField
 from datetime import datetime
+from cloudipsp import Api, Checkout
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///shop.db'
@@ -59,6 +60,20 @@ def create():
 @app.route('/new_page')
 def new_page():
     return render_template('new_page.html', title='new page')
+
+@app.route('/buy/<int:id>')
+def buy(id):
+    item = Item.query.get(id)
+
+    api = Api(merchant_id=1396424,
+              secret_key='test')
+    checkout = Checkout(api=api)
+    data = {
+        "currency": "USD",
+        "amount": str(item.price) + "00"
+    }
+    url = checkout.url(data).get('checkout_url')
+    return redirect(url)
 
 
 if __name__ == '__main__':
